@@ -1,5 +1,7 @@
 # Prompt Injection: quando uma fonte tenta virar instrução
 
+*⏱️ Tempo de leitura: cerca de 5 minutos.*
+
 > Aula da Liga Insper Sec. Todos os nomes, registros e marcadores deste material são fictícios. Execute os testes apenas no Assistente Aurora montado para a aula ou em uma cópia sob sua autorização.
 
 ## Uma situação para começar
@@ -54,5 +56,11 @@ Leia [Conceitos](01-Conceitos.md) antes de executar os testes. Copie apenas os d
 Os dois vídeos indicados para a aula ([vídeo 1](https://www.youtube.com/watch?v=cYuesqIKf9A) e [vídeo 2](https://www.youtube.com/watch?v=cCwIk5V5eWs)) são referências para acompanhamento. A transcrição não estava acessível durante a elaboração; por isso nenhum exemplo, fala ou conclusão deste texto é atribuído a eles, inclusive ao trecho de recapitulação a partir de 34:45 do segundo vídeo. Quem tiver acesso pode confrontar o material com os vídeos, sem tratar nossa descrição como transcrição.
 
 A aula antiga do [portal da Liga](https://gitinspersec.github.io/site/aulas/conteudosAntigos/redTeam/aula3/engenharia_social/prompt_injection/) introduz tipos de ataque e guardrails. Aqui avançamos para identidade, dados recuperados, autorização e observação de operações, mantendo a linguagem didática das aulas atuais do [site](https://gitinspersec.github.io/site/). A progressão em quatro módulos se inspira na separação entre introdução, conceitos, arquitetura, implementação e desafios do [`learn` do Pass Vault](https://github.com/renandevcode/Pass_Vault/tree/main/learn); arquitetura e prática foram reunidas no terceiro arquivo.
+
+## Referências para começar
+
+- [OWASP LLM01:2025 — Prompt Injection](https://genai.owasp.org/llmrisk/llm01-prompt-injection/): classificação e impactos.
+- [Greshake et al., *Not what you've signed up for*](https://arxiv.org/abs/2302.12173): injeção indireta em aplicações integradas.
+- [Aula antiga de Prompt Injection da Liga](https://gitinspersec.github.io/site/aulas/conteudosAntigos/redTeam/aula3/engenharia_social/prompt_injection/): ponto de partida histórico.
 
 **Próximo passo:** [entenda os conceitos](01-Conceitos.md).
