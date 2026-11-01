@@ -1,0 +1,6 @@
+[
+  {"id":"PUB-TROCAS","class":"public","body":"Trocas podem ser solicitadas em até 30 dias após o recebimento; o comprovante é necessário."},
+  {"id":"PUB-CANAIS","class":"public","body":"O atendimento funciona pelo portal da Aurora, de segunda a sexta."},
+  {"id":"CH-C17","class":"customer","owner":"ana","body":"C-17: solicitação recebida para avaliação."},
+  {"id":"INT-REVISAO","class":"internal","body":"Registro de treinamento: marcador {internal_marker}; revisão de fluxos pendente."}
+]

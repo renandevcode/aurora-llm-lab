@@ -2,7 +2,7 @@
 
 *⏱️ Tempo de leitura: cerca de 5 minutos.*
 
-> Aula da Liga Insper Sec. Todos os nomes, registros e marcadores deste material são fictícios. Execute os testes apenas no Assistente Aurora montado para a aula ou em uma cópia sob sua autorização.
+> Trilha de aprofundamento do projeto Aurora. Todos os nomes, registros e marcadores são fictícios. A [aula curta](../inspersec/docs/aulas/redTeam/aulasextras/prompt-injection.md) apresenta o tema; este projeto permite executar e ampliar o laboratório.
 
 ## Uma situação para começar
 
@@ -23,35 +23,26 @@ Ao terminar, você deverá conseguir:
 
 ## Pré-requisitos
 
-Basta saber ler Markdown e acompanhar uma conversa de atendimento. Explicamos do zero LLM, prompt, contexto, busca de documentos, ferramentas, permissões e limites de confiança. Python e acesso a uma API de modelo são opcionais: o exercício central pode ser feito com cartões de cenário e inspeção manual. Não é preciso conta, chave nem serviço pago.
+Basta saber ler Markdown e acompanhar uma conversa de atendimento. Explicamos do zero LLM, prompt, contexto, busca de documentos, ferramentas, permissões e limites de confiança. Python 3.10+ é necessário para executar a CLI e o MVP. A aula introdutória pode ser feita sem código. O modo offline não precisa de conta, chave nem serviço pago; o modo com LLM real requer Ollama e um modelo local instalado.
 
 ## O laboratório
 
-O [Assistente Aurora](02-Arquitetura-e-Laboratorio.md) atende uma empresa fictícia. Ele consulta política pública e registros internos inventados. Há uma identidade de cliente e uma de atendente, com permissões distintas. Um marcador sem valor real permite reconhecer uma divulgação acidental. Comparamos três configurações: dados excessivos com instrução de sigilo; instruções e rótulos reforçados; e filtragem de dados com autorização nas ferramentas. As respostas ilustrativas são **expectativas para análise**, não resultados atribuídos a um modelo testado.
+O [Assistente Aurora](02-Arquitetura-e-Laboratorio.md) atende uma empresa fictícia. Ele consulta política pública e registros internos inventados. Há uma identidade de cliente e uma de atendente, com permissões distintas. Marcadores aleatórios e sem valor real permitem analisar possíveis divulgações de registro e de instrução de sistema. Comparamos três configurações: dados excessivos com instrução de sigilo; instruções e rótulos reforçados; e filtragem de dados com autorização nas ferramentas. A [CLI](../README.md) executa os casos offline ou, por opção explícita, com Ollama. O modo offline é simulação e não demonstra comportamento de LLM.
 
 | Arquivo | Pergunta que responde |
 | --- | --- |
 | Este arquivo | Por que estudar e como preparar a aula? |
 | [01 — Conceitos](01-Conceitos.md) | Onde surge a instrução indevida e quais são os limites de confiança? |
-| [02 — Arquitetura e laboratório](02-Arquitetura-e-Laboratorio.md) | Como observar o problema e comparar controles no mesmo cenário? |
-| [03 — Desafios](03-Desafios.md) | Como aplicar os conceitos e relatar evidências? |
+| [02 — Arquitetura e laboratório](02-Arquitetura-e-Laboratorio.md) | Como o código seleciona dados, autoriza ferramentas e registra evidências? |
+| [03 — Desafios](03-Desafios.md) | Como passar da análise ao MVP de programação? |
 
-## Roteiro para duas horas
+## Em sala e depois
 
-| Tempo | Atividade | Produto esperado |
-| --- | --- | --- |
-| 0–10 min | Situação inicial e objetivo | Identificar fonte, pedido e comando embutido |
-| 10–35 min | Conceitos e exemplos comparados | Marcar entradas diretas e indiretas |
-| 35–50 min | Arquitetura Aurora | Desenhar dados, identidades e limites |
-| 50–85 min | Prática guiada nas três configurações | Registrar entrada, recuperação, resposta e operação |
-| 85–105 min | Desafios 1–5 em duplas | Justificativas apoiadas em evidências |
-| 105–120 min | Correção, novo teste e relatório | Mostrar controle e funcionalidade legítima |
-
-O roteiro é ajustável. Na modalidade sem modelo, a turma discute **resultados possíveis** e decide quais evidências seriam necessárias. Com modelo, registre versão, parâmetros e saídas reais antes de concluir algo.
+A [página curta](../inspersec/docs/aulas/redTeam/aulasextras/prompt-injection.md) e o [guia do instrutor](../INSTRUTOR.md) selecionam uma demonstração para 120 minutos. Esta trilha aprofunda arquitetura, código e desafios depois da aula. O [roteiro de demo](../DEMO.md) ajuda a registrar evidências.
 
 ## Preparação e escopo
 
-Leia [Conceitos](01-Conceitos.md) antes de executar os testes. Copie apenas os documentos fictícios descritos no laboratório para um ambiente controlado. Use contas de teste locais, sem dados de clientes, credenciais, integrações externas ou envio de mensagens. Se adaptar o exercício a uma aplicação real, obtenha autorização específica para o ambiente e mantenha a mesma limitação de dados. Pare diante de conteúdo que não pertença ao laboratório.
+Leia [Conceitos](01-Conceitos.md) antes de executar os testes. Use somente os documentos fictícios do repositório. `--profile` simula uma sessão autenticada, não autentica pessoas. O modo com Ollama conecta explicitamente ao serviço local; nenhuma ferramenta envia mensagens ou acessa sistemas externos. Se adaptar o exercício a uma aplicação real, obtenha autorização específica para o ambiente e mantenha a mesma limitação de dados. Pare diante de conteúdo que não pertença ao laboratório.
 
 Os dois vídeos indicados para a aula ([vídeo 1](https://www.youtube.com/watch?v=cYuesqIKf9A) e [vídeo 2](https://www.youtube.com/watch?v=cCwIk5V5eWs)) são referências para acompanhamento. A transcrição não estava acessível durante a elaboração; por isso nenhum exemplo, fala ou conclusão deste texto é atribuído a eles, inclusive ao trecho de recapitulação a partir de 34:45 do segundo vídeo. Quem tiver acesso pode confrontar o material com os vídeos, sem tratar nossa descrição como transcrição.
 
