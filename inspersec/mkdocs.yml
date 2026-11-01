@@ -1,0 +1,15 @@
+# Configuração mínima de prévia para o repositório de teste.
+# No site oficial, o PR precisaria adicionar apenas a página e sua entrada à navegação existente.
+site_name: Liga Insper Sec — prévia de Prompt Injection
+theme:
+  name: material
+  language: pt-BR
+nav:
+  - Aulas:
+      - Red Team:
+          - Extras:
+              - Prompt Injection: aulas/redTeam/aulasextras/prompt-injection.md
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
