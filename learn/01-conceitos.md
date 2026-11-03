@@ -49,7 +49,9 @@ Mudar a apresentação de um dado não altera quem pode acessá-lo. Uma polític
 
 ## Autenticação, autorização e intenção
 
-**Autenticação** verifica identidade. **Autorização** verifica se essa identidade pode realizar uma operação sobre um objeto. Uma terceira questão é a **intenção da solicitação**: mesmo alguém autorizado a alterar um registro pode ter pedido apenas sua leitura.
+- **Autenticação**: verifica identidade.
+- **Autorização**: verifica se essa identidade pode realizar uma operação sobre um objeto.
+- **intenção da solicitação**: mesmo alguém autorizado a alterar um registro pode ter pedido apenas sua leitura.
 
 Em um sistema real, essas decisões precisam usar dados confiáveis da sessão e regras do servidor. O próprio texto enviado ao modelo não pode se promover a uma credencial.
 
@@ -57,9 +59,22 @@ O cookie do Aurora separa sessões do laboratório. Ele não comprova identidade
 
 ## Ferramentas e execução
 
-No mecanismo de ferramentas, o modelo produz uma solicitação estruturada com nome e argumentos. A aplicação recebe essa solicitação, verifica o que está disponível, executa a função e devolve o resultado ao modelo. O modelo pode então produzir uma síntese. A [documentação do Ollama](https://docs.ollama.com/capabilities/tool-calling) descreve esse ciclo.
+Uma ferramenta é uma função disponibilizada pela aplicação para consultar dados ou executar uma operação. O modelo solicita seu uso; a aplicação controla a execução.
 
-Escrever JSON dentro de uma resposta não significa que esse ciclo aconteceu. Na interface do Aurora, o painel de ações apresenta os retornos registrados pelo servidor. Uma ação pode ter ocorrido mesmo que a síntese final falhe; também pode haver uma frase de sucesso sem ação correspondente.
+O ciclo funciona assim:
+
+1. O modelo produz uma solicitação estruturada com o nome da ferramenta e seus argumentos.
+2. A aplicação verifica se a ferramenta está disponível e se a operação é permitida pelas regras implementadas.
+3. Se permitida, a aplicação executa a função e devolve o resultado ao modelo.
+4. O modelo pode usar esse resultado para escrever a resposta final.
+
+A [documentação do Ollama](https://docs.ollama.com/capabilities/tool-calling) descreve esse ciclo.
+
+### Como confirmar uma execução
+
+Escrever um JSON ou afirmar que uma ação foi concluída não comprova sua execução. No Aurora, consulte o painel **Ações simuladas**, que apresenta os retornos registrados pelo servidor.
+
+Uma ação pode ter sido executada mesmo que a resposta final do modelo falhe. Também pode ocorrer o contrário: o modelo afirma sucesso, mas não existe uma ação correspondente nos registros.
 
 ## Filtros, validação e autorização
 
