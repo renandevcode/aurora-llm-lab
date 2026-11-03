@@ -1,57 +1,51 @@
-# Organização para a aula e o projeto da Liga
+# Integração dos pacotes Aurora
 
-Este pacote foi organizado para servir como aula e laboratório local. A comparação usa o [site publicado](https://gitinspersec.github.io/site/), o [README do site](https://github.com/gitinspersec/site) e as [instruções de Projetos](https://github.com/gitinspersec/Projetos/blob/main/INSTRUCTIONS.md), consultados em 2 de novembro de 2026. Nenhuma alteração nos repositórios externos integra esta entrega.
+Este repositório tem dois pacotes com destinos distintos. Os caminhos abaixo orientam uma integração posterior pelos responsáveis. A preparação local não modifica os repositórios da Liga.
 
-## Correspondência com as referências
+## Mapa de cópia
 
-| Referência observada | Aplicação neste pacote |
-| --- | --- |
-| Aulas organizadas por tema, com fundamentos e prática | `docs/AULA.md`, com conceitos, atividade e discussão defensiva |
-| Pré-requisitos e instruções de execução | README com ambiente virtual, Ollama, execução e diagnóstico |
-| Projetos com objetivo, aprendizagem, escopo e validação | `learn/06-projeto.md` e README |
-| Materiais de apoio em `learn/` | Índice e módulos de introdução, conceitos, arquitetura, implementação, desafios, validação e entrega |
-| Entrega com demonstração e explicação | `DEMO_MODELO.md` e rubrica proposta |
-| Site com conteúdo em `inspersec/docs` e navegação em `inspersec/mkdocs.yml` | Aula em Markdown, sem dependência de recursos exclusivos deste repositório |
+| Origem neste repositório | Destino proposto | Conteúdo |
+| --- | --- | --- |
+| `projeto/Aurora/` | `projects/Individual/Aurora/` no repositório Projetos | Laboratório completo e trilha de aprendizagem |
+| `aula/inspersec/docs/aulas/redTeam/aulasextras/aurora.md` | `inspersec/docs/aulas/redTeam/aulasextras/aurora.md` no repositório do site | Página da aula |
+| Item em `aula/navegacao.yml` | Grupo Aulas → Red Team → Extras do MkDocs existente | Entrada para acessar a página |
 
-A estrutura segue os exemplos consultados. Isso não representa aprovação editorial, definição de semestre ou inclusão no catálogo oficial. O nível N2/N3 e os tempos de aula são propostas locais.
+Os repositórios de referência são [Projetos](https://github.com/gitinspersec/Projetos) e [site](https://github.com/gitinspersec/site). A localização no catálogo e o nome final da atividade devem ser confirmados pelos mantenedores no momento da integração.
 
-## Conteúdo preparado para o site
+## Pacote do projeto
 
-O arquivo `docs/AULA.md` contém a aula do aluno, com situação inicial, exemplos comentados, perguntas com respostas explicadas e três blocos de prática. A trilha aprofundada fica em `learn/`, com navegação entre módulos. A aula usa títulos, tabelas, listas e blocos de código compatíveis com Markdown, sem imagens ou plugins adicionais. Os links relativos de instalação e aprofundamento funcionam neste pacote e precisam apontar para a pasta definitiva do projeto quando a aula for copiada isoladamente para o site. Os módulos de aprofundamento usam links locais de navegação e um diagrama Mermaid; a renderização desse diagrama precisa ser habilitada na futura configuração do MkDocs. A apresentação é própria; o conteúdo das aulas da Liga não foi copiado.
+Copie a pasta `Aurora` inteira, incluindo seu `.gitignore`, README, aplicação, dados fictícios, frontend, testes, ferramentas, guia docente, modelo de demo, documentação e `learn/`. O [README do pacote](../projeto/Aurora/README.md) descreve a instalação a partir dessa pasta.
 
-Em uma integração futura, um responsável pode colocar a aula em um caminho como `inspersec/docs/aulas/redTeam/extras/aurora.md` e cadastrá-la na navegação do MkDocs. O caminho é apenas uma sugestão, que precisa ser ajustada ao calendário e à estrutura escolhida pela Liga. A aula antiga de Prompt Injection já existe em Conteúdos antigos; a nova aula não precisa substituí-la automaticamente.
+A aplicação resolve seus caminhos a partir de `__file__`. A consulta ao modelo usa o serviço Ollama local. Mudar a pasta de lugar não exige ajustar os arquivos Python ou JavaScript.
 
-### Ajuste dos links na publicação
+Ambientes virtuais, caches, evidências geradas e arquivos `.git` não fazem parte do pacote. O `.gitignore` do projeto registra essas exclusões. A versão CLI em `cli/` é histórica e fica fora dos dois pacotes preparados.
 
-A aula pode ser estudada neste repositório com todos os links abaixo. Ao copiar apenas `docs/AULA.md` para o site, mantenha a origem desses materiais no repositório de projetos e substitua os destinos relativos pelas URLs oficiais da pasta em que o pacote realmente for incluído. O endereço da pasta de Aurora em `Projetos` ainda não foi definido; por isso não há links para caminhos remotos inventados.
+Depois da cópia, a atualização de um catálogo ou README geral de Projetos é uma decisão editorial dos mantenedores. Nenhum arquivo geral daquele repositório deve ser substituído pelo README do Aurora.
 
-| Link atual na aula | Destino a usar na publicação |
-| --- | --- |
-| `../README.md` | README da pasta definitiva do laboratório, com instalação e execução |
-| `../README.md#resolver-problemas` | Mesmo README, seção de diagnóstico |
-| `../learn/README.md` | Índice da trilha no projeto publicado |
-| `../learn/04-desafios.md` | Desafios de programação do mesmo pacote |
-| `../learn/06-projeto.md` | Critérios de entrega do mesmo pacote |
-| `../DEMO_MODELO.md` | Modelo de demo do mesmo pacote |
+## Pacote da aula
 
-Confira também as âncoras no renderizador de destino: GitHub e MkDocs podem gerar identificadores diferentes para títulos com acentos. Os links entre páginas podem ser publicados sem a âncora quando necessário, preservando o nome da seção no texto. A navegação do site e o build oficial devem ser verificados depois dessa integração; o material permanece local nesta entrega.
+A página está no caminho de aulas extras usado como referência. Ela contém situação inicial, fundamentos, exemplos comentados, perguntas com respostas e atividades no laboratório.
 
+Na integração do site, copie apenas a página e acrescente sua entrada à navegação. O [trecho de navegação](../aula/navegacao.yml) contém somente um item, sem redefinir o restante do menu. A configuração [mkdocs.preview.yml](../aula/mkdocs.preview.yml) é exclusiva da prévia local e não substitui o `inspersec/mkdocs.yml` oficial.
 
-O site pode hospedar o texto e apontar para o projeto. O backend FastAPI e o Ollama devem continuar rodando localmente nas máquinas dos alunos; GitHub Pages não executa Python nem inferência do modelo. Após a integração futura, é necessário validar a navegação e os links no build real do site.
+A página usa Markdown, tabelas e blocos de código. Não depende de imagens locais, do diretório `learn/` dentro do site, nem de um backend hospedado no GitHub Pages. Os requisitos e comandos da prévia estão no [README da aula](../aula/README.md).
 
-## Conteúdo preparado para Projetos
+## Links entre aula e projeto
 
-O pacote completo pode ser colocado em uma pasta de projeto escolhida pela gestão, preservando README, `learn/`, código, dados fictícios, frontend e testes. A instalação não depende do nome dessa pasta nem de um caminho pessoal.
+Os links da aula para instalação, trilha, desafios e entrega são absolutos e apontam para:
 
-`DEMO_MODELO.md` é um formulário para o aluno preencher e salvar como `DEMO.md`. Ele não é uma demo concluída. A rubrica mantém critérios de funcionamento, compreensão, validação, comunicação e escopo. Regras de equipe, prazos, mídia e classificação oficial continuam sob responsabilidade da Liga.
+```text
+https://github.com/renandevcode/aurora-llm-lab/blob/main/projeto/Aurora/
+```
 
-## Limites da validação
+Assim, copiar a página isoladamente não altera o destino dos materiais de apoio. Os links complementares do pacote do projeto apontam para a página da aula neste mesmo repositório. Os arquivos da aplicação e os links internos de `learn/` permanecem dentro do próprio pacote.
 
-A organização textual foi comparada com os arquivos de referência. A instalação, API, testes e navegador são validados localmente, conforme o relatório de validação desta entrega. Os repositórios externos não foram clonados, editados, publicados ou usados para commits e pushes. O build do site oficial não foi executado.
+Esses novos caminhos passam a existir no GitHub depois que esta organização for publicada e integrada à `main` do seu repositório. Antes disso, a validação resolve os destinos na cópia local. Não são apresentados como páginas já publicadas nos repositórios da Liga.
 
+Se a Liga definir um endereço oficial para o laboratório e desejar utilizá-lo nos links da aula, substitua o prefixo acima pelo endereço dessa pasta. Essa troca é editorial e não modifica o funcionamento do chat.
 
-## Contexto da trilha completa
+## Prévia e verificação local
 
-A sequência foi comparada com o [learn do Hash_ID](https://github.com/gitinspersec/Projetos/tree/main/projects/Individual/Hash_ID/learn) e com o [material do teste-sec](https://github.com/renandevcode/teste-sec/tree/main/learn), consultados na mesma data. O primeiro separa introdução, conceitos, arquitetura, implementação e desafios. O segundo já contém introdução, conceitos, arquitetura e desafios para outra implementação de Aurora.
+Para visualizar a aula, use `aula/mkdocs.preview.yml`. Para verificar a aplicação, execute os testes a partir de `projeto/Aurora/`. Para demonstrar que os pacotes estão separados, ambos podem ser copiados para diretórios temporários distintos e verificados sem a estrutura completa deste repositório.
 
-Nesta pasta, as explicações foram adaptadas à API FastAPI, ao frontend e às ferramentas realmente existentes. Comandos de CLI, perfis Ana/Bia e configurações A/B/C do outro projeto não foram apresentados como recursos desta versão. O MVP defensivo tem tarefas, casos permitidos e negados e critérios de conclusão; ele é um exercício a implementar pelo aluno.
+Os resultados da reorganização são registrados na [validação do projeto](../projeto/Aurora/docs/VALIDACAO.md). Uma prévia local não substitui a verificação final da navegação e do build após a integração ao site oficial.

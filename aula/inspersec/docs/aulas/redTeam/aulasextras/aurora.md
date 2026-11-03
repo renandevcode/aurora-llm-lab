@@ -38,11 +38,13 @@ Os materiais do projeto estão nestes caminhos:
 
 | Material | Quando usar |
 | --- | --- |
-| [Instalação e execução](../README.md) | Preparar Python, dependências, Ollama e modelo |
-| [Resolução de problemas](../README.md#resolver-problemas) | Investigar falhas de ambiente ou conexão |
-| [Trilha completa de aprendizagem](../learn/README.md) | Aprofundar conceitos, arquitetura e implementação |
-| [Desafios de programação](../learn/04-desafios.md) | Continuar depois da investigação guiada |
-| [Critérios de entrega](../learn/06-projeto.md) | Conferir o escopo combinado com o docente |
+| [Instalação e execução](https://github.com/renandevcode/aurora-llm-lab/blob/main/projeto/Aurora/README.md) | Preparar Python, dependências, Ollama e modelo |
+| [Resolução de problemas](https://github.com/renandevcode/aurora-llm-lab/blob/main/projeto/Aurora/README.md#resolver-problemas) | Investigar falhas de ambiente ou conexão |
+| [Trilha completa de aprendizagem](https://github.com/renandevcode/aurora-llm-lab/blob/main/projeto/Aurora/learn/README.md) | Aprofundar conceitos, arquitetura e implementação |
+| [Desafios de programação](https://github.com/renandevcode/aurora-llm-lab/blob/main/projeto/Aurora/learn/04-desafios.md) | Continuar depois da investigação guiada |
+| [Critérios de entrega](https://github.com/renandevcode/aurora-llm-lab/blob/main/projeto/Aurora/learn/06-projeto.md) | Conferir o escopo combinado com o docente |
+
+O código do laboratório fica em `projeto/Aurora/` no repositório de apoio. Se você recebeu a pasta `Aurora` separadamente, ela já contém todos os arquivos necessários para executar o projeto.
 
 Prepare Python 3.10 ou superior, Ollama e o modelo `qwen2.5:1.5b` conforme o guia. Na pasta do projeto, com o ambiente virtual ativado no Linux ou macOS, inicie:
 
@@ -248,7 +250,7 @@ Escolha um mecanismo observado no Aurora e explique:
 
 Por exemplo, uma política de leitura pode permitir registros públicos e negar reservados. Sua verificação precisa incluir os dois casos. Negar tudo elimina também o atendimento legítimo; pedir ao modelo que seja mais cuidadoso não demonstra que a função passou a aplicar a regra.
 
-As extensões de implementação ficam nos [desafios de programação](../learn/04-desafios.md). Elas devem ser feitas em uma cópia separada, porque corrigir uma falha deliberada pode impedir a resolução da missão original. A aula não exige implementar login, serviços reais ou integrações externas.
+As extensões de implementação ficam nos [desafios de programação](https://github.com/renandevcode/aurora-llm-lab/blob/main/projeto/Aurora/learn/04-desafios.md). Elas devem ser feitas em uma cópia separada, porque corrigir uma falha deliberada pode impedir a resolução da missão original. A aula não exige implementar login, serviços reais ou integrações externas.
 
 ## Organização dos encontros
 
@@ -267,7 +269,7 @@ A instalação e o download do modelo ocorrem antes dos encontros. Combine um li
 
 Prepare um relato com duas tentativas comparáveis, uma análise de documento ou ferramenta e uma defesa com caso permitido e caso negado. Identifique uso de pistas e formulários. Se não concluiu uma etapa, registre o que ocorreu sem inventar evidências.
 
-Para continuar, siga a [trilha completa](../learn/README.md), os [critérios de projeto](../learn/06-projeto.md) e o [modelo de demo](../DEMO_MODELO.md). Essa continuação aprofunda código e testes; a investigação feita em aula é sua preparação.
+Para continuar, siga a [trilha completa](https://github.com/renandevcode/aurora-llm-lab/blob/main/projeto/Aurora/learn/README.md), os [critérios de projeto](https://github.com/renandevcode/aurora-llm-lab/blob/main/projeto/Aurora/learn/06-projeto.md) e o [modelo de demo](https://github.com/renandevcode/aurora-llm-lab/blob/main/projeto/Aurora/DEMO_MODELO.md). Essa continuação aprofunda código e testes; a investigação feita em aula é sua preparação.
 
 ## Referências
 

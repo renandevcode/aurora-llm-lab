@@ -43,7 +43,7 @@ Comece pelo [vocabulário](01-conceitos.md). Depois observe a [arquitetura](02-a
 
 Se estiver realizando a investigação sem consultar o código, registre as tentativas antes de abrir os arquivos que contêm dados internos. Encontrar um valor no código e obtê-lo na conversa são evidências diferentes.
 
-Na aula guiada, o tempo sugerido é de dois encontros de 90 minutos, com instalação prévia. O estudo completo e o MVP de programação exigem tempo adicional. O [roteiro curto](../docs/AULA.md) divide as atividades dos encontros.
+Na aula guiada, o tempo sugerido é de dois encontros de 90 minutos, com instalação prévia. O estudo completo e o MVP de programação exigem tempo adicional. O [roteiro curto](https://github.com/renandevcode/aurora-llm-lab/blob/main/aula/inspersec/docs/aulas/redTeam/aulasextras/aurora.md) divide as atividades dos encontros.
 
 ## Quando você concluiu esta etapa
 

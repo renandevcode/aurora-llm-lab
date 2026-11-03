@@ -8,3 +8,6 @@ aurora-evidencias*.json
 
 # Estado e relatórios temporários da implementação CLI
 state/
+
+# Arquivos gerados pela prévia local da aula
+/build/

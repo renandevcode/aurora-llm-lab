@@ -1,0 +1,22 @@
+# Configuração exclusiva da prévia local. Não substitui a configuração do site da Liga.
+site_name: Aurora — prévia da aula
+dev_addr: 127.0.0.1:8001
+docs_dir: inspersec/docs
+site_dir: ../build/aula
+theme:
+  name: material
+  language: pt-BR
+  font: false
+  palette:
+    primary: red
+    accent: red
+nav:
+  - Início: index.md
+  - Aulas:
+      - Red Team:
+          - Extras:
+              - Prompt Injection e segurança de assistentes de IA: aulas/redTeam/aulasextras/aurora.md
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
