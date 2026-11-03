@@ -120,3 +120,17 @@ O endpoint `/api/health` respondeu com sucesso, mas a saudação enviada ao chat
 O diagnóstico foi acrescentado ao README. Não foram alterados modelo, prompts ou processos do usuário para contornar a falta de RAM. Depois de disponibilizar memória, a geração precisa ser verificada novamente com uma saudação. Não foi executada uma campanha de resolução dos sete desafios.
 
 A validação ocorreu em Linux. Windows, macOS e a integração final ao site oficial permanecem sem teste nesta auditoria. As correções foram locais, sem commit, push ou alteração dos repositórios da Liga.
+
+## Aprofundamento da aula e versão para leitura em documento
+
+A aula foi ampliada com explicações sobre prompt, tokens e limites de confiança; relação com engenharia social; distinção entre injeção direta, indireta e jailbreak; um exemplo completo de atendimento; e defesa em camadas. O bloco final ganhou uma função de autorização por objeto, comentada em português, e casos executáveis de consulta permitida e negada. Os exemplos permanecem identificados como ilustrações independentes da implementação do Aurora. A distribuição de tempo do segundo encontro foi ajustada para incluir a leitura do código.
+
+Os dois blocos Python foram extraídos diretamente do Markdown e executados em sequência: a consulta legítima foi aprovada e os três casos indevidos foram negados. O build estrito da aula e a conferência de referências locais passaram. A página ampliada foi verificada em Chrome nas larguras 390 e 1440 pixels, com os dois blocos presentes, sem erros JavaScript nem transbordamento horizontal da página.
+
+Foi gerada uma versão DOCX compatível com importação no Google Docs e um PDF de leitura. O conteúdo do DOCX foi comparado ao HTML de origem, incluindo títulos, parágrafos, listas, células e linhas de código. Tabelas e código foram inspecionados visualmente na prévia PDF. A cópia Markdown acompanha a exportação. Esses documentos são cópias de leitura; o Markdown da aula permanece como fonte para o site. Não foi testada a importação em uma conta do Google Docs nem realizada publicação externa.
+
+Esta revisão altera somente a aula e este registro de validação; o código executável e os desafios do laboratório foram preservados. A exportação é entregue fora do repositório, na pasta de Downloads solicitada.
+
+A revisão de adequação ao planejamento acrescentou estimativa de leitura de 30–35 minutos, aprofundamento de jailbreak, seção sobre vazamento de system prompt e atividade complementar do Gandalf. Os conceitos foram conferidos em OWASP LLM01 e LLM07; a referência da Lakera e o redirecionamento atual do jogo foram consultados. A atividade não apresenta soluções executadas nem afirma disponibilidade do formato clássico. A estimativa de leitura considera aproximadamente 5.200 palavras e pausas para código; não é uma medição com alunos.
+
+A revisão de concisão preservou os cinco blocos, as práticas A/B/C, jailbreak, vazamento de system prompt, mitigações, Gandalf e referências. O Markdown passou de 5.221 para 2.810 palavras pela contagem de itens separados por espaços (incluindo marcação e código), redução aproximada de 46%. A leitura estimada passou a 18–22 minutos. Detalhes operacionais foram resumidos com encaminhamento ao README; os dois blocos Python permaneceram completos e foram executados novamente. O build estrito e a verificação dos 155 links locais ou projetados passaram. As contagens anteriores neste relatório descrevem revisões anteriores.
