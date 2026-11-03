@@ -45,12 +45,6 @@ Se estiver realizando a investigação sem consultar o código, registre as tent
 
 Na aula guiada, o tempo sugerido é de dois encontros de 90 minutos, com instalação prévia. O estudo completo e o MVP de programação exigem tempo adicional. O [roteiro curto](../docs/AULA.md) divide as atividades dos encontros.
 
-## O que muda em relação ao outro Aurora
-
-O repositório [teste-sec](https://github.com/renandevcode/teste-sec) também contém material do Assistente Aurora. Na versão consultada, ele descreve uma CLI, perfis simulados e configurações A/B/C. Esse contexto ajuda a discutir permissões e evidências, mas aqueles comandos e módulos não pertencem a esta aplicação.
-
-Aqui, a entrada principal é `python app.py`; a interação ocorre no navegador; o estado fica em memória por sessão. Não há pacote `aurora_lab`, opção `--profile`, modo offline de conversa ou configurações A/B/C implementados nesta pasta. Os testes simulam respostas do modelo, o que é diferente de oferecer um modo offline ao aluno.
-
 ## Quando você concluiu esta etapa
 
 Antes de avançar, explique com suas palavras:
