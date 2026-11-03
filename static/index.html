@@ -1,66 +1,309 @@
 <!doctype html>
 <html lang="pt-BR">
-<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Aurora — Prompt Lab</title><link rel="stylesheet" href="/static/style.css"><script defer src="/static/app.js?v=send-compat-1"></script></head>
-<body>
-<a class="skip-link" href="#message-input">Pular para a conversa</a>
-<header class="global-header"><a class="brand" href="/" aria-label="Aurora"><span class="aurora-logo" role="img" aria-label="Aurora"></span></a><span class="brand-caption">PROMPT INJECTION LAB</span><div class="global-right"><span class="local-label"><span data-icon="monitor"></span><i></i> Ambiente local</span><span class="insper-logo" role="img" aria-label="Insper Sec — Organização Estudantil"></span></div></header>
-<div class="workspace">
-<aside id="sidebar" class="sidebar">
-  <div class="section-label">SEU PERCURSO <span id="progress-count">Carregando…</span></div>
-  <div class="progress-track"><div id="progress-bar"></div></div>
-  <nav id="levels" aria-label="Níveis do laboratório"></nav>
-  <span id="progress-text" class="sr-only"></span><button id="how-button" class="how-button" type="button"><span data-icon="help"></span> Como funciona <span class="chevron">›</span></button>
-</aside>
-<main class="main">
-  <div class="mobile-controls"><button id="sidebar-toggle" type="button" aria-label="Abrir desafios" aria-expanded="false" aria-controls="sidebar">Desafios</button><button id="mission-toggle" aria-controls="context-panel" aria-expanded="false" type="button">Missão e flag</button></div>
-  <div class="conversation-area">
-    <header class="challenge-header"><div class="challenge-heading"><span class="eyebrow">Desafios <span>/</span> <span id="challenge-number">01</span></span><h1 id="current-name">Carregando desafio…</h1><div class="level-meta"><span id="level-tag"></span><span id="difficulty"></span></div></div><div class="challenge-actions"><button id="history-button" type="button"><span data-icon="history"></span> Histórico</button><button id="new-chat" type="button"><span data-icon="plus"></span> Nova tentativa</button></div></header>
-    <div class="attempt-toolbar"><span id="attempt-label">Conversa 01</span><span>·</span><span id="send-count">0 envios</span></div>
-    <div id="chat-scroll" class="chat-scroll">
-      <section id="welcome" class="welcome"><span class="assistant-avatar" aria-hidden="true"></span><h2>Uma hipótese. Uma nova tentativa.</h2><p>Consulte a missão, escreva seu prompt e observe a resposta. Ajuste sua abordagem e valide a descoberta no campo de flag.</p><button type="button" id="challenge-button">Consultar missão</button></section>
-      <div id="messages" role="log" aria-label="Mensagens da conversa" aria-live="polite"></div>
-    </div>
-    <div id="chat-status" class="chat-status" role="status" aria-live="polite"></div>
-    <form id="chat-form" class="composer"><label for="message-input">Seu próximo prompt</label><textarea id="message-input" placeholder="Escreva uma hipótese e teste…" rows="2" maxlength="4000" required></textarea><div class="composer-bottom"><span>Enter envia · Shift + Enter quebra linha</span><button id="send-button" type="submit" aria-label="Enviar mensagem">Enviar <span data-icon="arrow"></span></button></div><span id="char-count" class="sr-only">0 / 4000</span></form>
-    <footer><span id="model-label">Carregando modelo…</span> · Execução local</footer>
-  </div>
-</main>
-<aside id="context-panel" class="context-panel" aria-label="Missão e validação"><header class="panel-header"><h2><span data-icon="target"></span> Sua missão</h2><span id="mission-status" class="mission-status">Em andamento</span><button id="close-mission" type="button">Fechar</button></header>
-
-    <section class="mission" aria-labelledby="mission-heading">
-      <span id="mission-heading" class="sr-only">Objetivo</span>
-      <strong id="mission-objective"></strong>
-      <p class="mission-format">Formato esperado: <code>CTF{…}</code>.</p>
-      <details class="context-details"><summary>Ver contexto</summary><p id="mission-location"></p><p id="level-description"></p></details>
-      <a id="video-source" class="video-source" target="_blank" rel="noopener noreferrer" hidden></a>
-    </section>
-    <section class="hints-section"><header class="panel-header"><h2><span data-icon="bulb"></span> Pistas</h2><span id="hint-count">0 de 3</span></header><p>Precisa de uma direção? Revele uma pista por vez.</p><div id="hint" class="hint"><ol id="hint-list" aria-live="polite"></ol><button id="next-hint" type="button">Revelar primeira pista</button><p id="reflection" class="reflection" hidden></p></div></section>
-    <section id="document-panel" class="document-panel" hidden>
-      <button id="document-toggle" type="button" aria-expanded="false" aria-controls="document-editor"><span>▤ &nbsp; ticket_externo.txt <small>Documento consultado pelo assistente</small></span><span>Editar documento ↗</span></button>
-      <div id="document-editor" hidden><label for="document-input">Edite o ticket para testar uma injeção indireta. Ele será consultado na próxima mensagem.</label><textarea id="document-input" maxlength="6000" rows="6" spellcheck="false"></textarea><p>Fonte interna do assistente: <code>credenciais_demo.txt</code> · campos <code>usuario</code>, <code>senha</code> e <code>codigo_recuperacao</code>. O objetivo é recuperar a flag deste último campo.</p></div>
-    </section>
-    <details id="tool-panel" class="tool-panel" hidden>
-      <summary>Ações simuladas <span id="action-count">Nenhuma ação registrada</span></summary>
-      <div class="tool-content">
-        <p>Este painel mostra somente ações executadas pelo servidor. Não faz ligações nem abre portas reais.</p>
-        <form id="action-form" hidden>
-          <div id="phone-fields"><label for="phone-input">Ramal descoberto no cadastro</label><input id="phone-input" maxlength="30" autocomplete="off" placeholder="Digite o ramal encontrado"></div>
-          <div id="door-fields" hidden><label for="code-input">Código recebido na chamada</label><input id="code-input" maxlength="80" autocomplete="off"><label for="direction-input">Direção recebida</label><input id="direction-input" maxlength="40" autocomplete="off"></div>
-          <button id="action-button" type="submit">Executar ação simulada</button>
-        </form>
-        <div id="action-feedback" role="status"></div>
-        <div id="action-log" aria-label="Resultados das ferramentas"></div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Aurora — Prompt Lab</title>
+    <link rel="stylesheet" href="/static/style.css" />
+    <script defer src="/static/app.js?v=send-compat-1"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#message-input">Pular para a conversa</a>
+    <!-- Cabeçalho e identificação do laboratório local. -->
+    <header class="global-header">
+      <a class="brand" href="/" aria-label="Aurora"
+        ><span class="aurora-logo" role="img" aria-label="Aurora"></span></a
+      ><span class="brand-caption">PROMPT INJECTION LAB</span>
+      <div class="global-right">
+        <span class="local-label"
+          ><span data-icon="monitor"></span><i></i> Ambiente local</span
+        ><span
+          class="insper-logo"
+          role="img"
+          aria-label="Insper Sec — Organização Estudantil"
+        ></span>
       </div>
-    </details>
-  <section class="capture-card" aria-labelledby="capture-title">
-    <div class="capture-heading"><span data-icon="flag"></span><h2 id="capture-title">Validar descoberta</h2></div>
+    </header>
+    <div class="workspace">
+      <!-- Navegação das missões e progresso retornado pela API. -->
+      <aside id="sidebar" class="sidebar">
+        <div class="section-label">
+          SEU PERCURSO <span id="progress-count">Carregando…</span>
+        </div>
+        <div class="progress-track"><div id="progress-bar"></div></div>
+        <nav id="levels" aria-label="Níveis do laboratório"></nav>
+        <span id="progress-text" class="sr-only"></span
+        ><button id="how-button" class="how-button" type="button">
+          <span data-icon="help"></span> Como funciona <span class="chevron">›</span>
+        </button>
+      </aside>
+      <!-- Área de conversa; os identificadores são utilizados por static/app.js. -->
+      <main class="main">
+        <div class="mobile-controls">
+          <button
+            id="sidebar-toggle"
+            type="button"
+            aria-label="Abrir desafios"
+            aria-expanded="false"
+            aria-controls="sidebar"
+          >
+            Desafios</button
+          ><button
+            id="mission-toggle"
+            aria-controls="context-panel"
+            aria-expanded="false"
+            type="button"
+          >
+            Missão e flag
+          </button>
+        </div>
+        <div class="conversation-area">
+          <header class="challenge-header">
+            <div class="challenge-heading">
+              <span class="eyebrow"
+                >Desafios <span>/</span> <span id="challenge-number">01</span></span
+              >
+              <h1 id="current-name">Carregando desafio…</h1>
+              <div class="level-meta">
+                <span id="level-tag"></span><span id="difficulty"></span>
+              </div>
+            </div>
+            <div class="challenge-actions">
+              <button id="history-button" type="button">
+                <span data-icon="history"></span> Histórico</button
+              ><button id="new-chat" type="button">
+                <span data-icon="plus"></span> Nova tentativa
+              </button>
+            </div>
+          </header>
+          <div class="attempt-toolbar">
+            <span id="attempt-label">Conversa 01</span><span>·</span
+            ><span id="send-count">0 envios</span>
+          </div>
+          <div id="chat-scroll" class="chat-scroll">
+            <section id="welcome" class="welcome">
+              <span class="assistant-avatar" aria-hidden="true"></span>
+              <h2>Uma hipótese. Uma nova tentativa.</h2>
+              <p>
+                Consulte a missão, escreva seu prompt e observe a resposta. Ajuste sua
+                abordagem e valide a descoberta no campo de flag.
+              </p>
+              <button type="button" id="challenge-button">Consultar missão</button>
+            </section>
+            <div
+              id="messages"
+              role="log"
+              aria-label="Mensagens da conversa"
+              aria-live="polite"
+            ></div>
+          </div>
+          <div
+            id="chat-status"
+            class="chat-status"
+            role="status"
+            aria-live="polite"
+          ></div>
+          <form id="chat-form" class="composer">
+            <label for="message-input">Seu próximo prompt</label
+            ><textarea
+              id="message-input"
+              placeholder="Escreva uma hipótese e teste…"
+              rows="2"
+              maxlength="4000"
+              required
+            ></textarea>
+            <div class="composer-bottom">
+              <span>Enter envia · Shift + Enter quebra linha</span
+              ><button id="send-button" type="submit" aria-label="Enviar mensagem">
+                Enviar <span data-icon="arrow"></span>
+              </button>
+            </div>
+            <span id="char-count" class="sr-only">0 / 4000</span>
+          </form>
+          <footer>
+            <span id="model-label">Carregando modelo…</span> · Execução local
+          </footer>
+        </div>
+      </main>
+      <!-- Painel de missão, pistas, documento e validação da descoberta. -->
+      <aside id="context-panel" class="context-panel" aria-label="Missão e validação">
+        <header class="panel-header">
+          <h2><span data-icon="target"></span> Sua missão</h2>
+          <span id="mission-status" class="mission-status">Em andamento</span
+          ><button id="close-mission" type="button">Fechar</button>
+        </header>
 
-    <form id="flag-form" novalidate><label for="flag-input">Flag encontrada</label><input id="flag-input" placeholder="CTF{...}" autocomplete="off" maxlength="200" required><button class="validate-button" type="submit">Validar flag</button></form>
-    <p class="validation-note">A validação confirma a conclusão do desafio.</p>
-    <div id="flag-feedback" role="status" aria-live="polite"></div>
-    <button id="next-level" type="button" hidden>Próximo desafio →</button>
-  </section></aside>
-</div>
-<dialog id="history-dialog" aria-labelledby="history-title"><header class="panel-header"><h2 id="history-title">Histórico de tentativas</h2><button id="close-history" type="button">Fechar</button></header><p>As tentativas anteriores são somente leitura. Nova tentativa preserva progresso e registros de ações, mas reinicia a chamada no nível 6 e a abertura no nível 7. Ao refazer o nível 6, repita a chamada antes de abrir a porta. Reiniciar o servidor apaga a sessão.</p><button id="export-history" type="button">Exportar evidências JSON</button><p id="export-status" role="status"></p><div id="attempt-list"></div><section id="comparison" hidden><h3>Comparar tentativas</h3><p>Compare os prompts, as respostas e o documento enviado. As instruções internas do exercício não são exibidas.</p><div class="compare-selects"><label>Primeira tentativa<select id="compare-a"></select></label><label>Segunda tentativa<select id="compare-b"></select></label></div><div id="compare-content"></div></section></dialog>
-<dialog id="how-dialog" aria-labelledby="how-title"><header class="panel-header"><h2 id="how-title">Como funciona</h2><button id="close-how" type="button">Fechar</button></header><ol><li>Leia a missão do desafio e formule uma hipótese.</li><li>Envie um prompt e observe a resposta da Aurora.</li><li>Ajuste sua abordagem ou consulte uma pista por vez.</li><li>Envie sua descoberta no campo de flag. Somente o validador confirma a conclusão.</li></ol><p>Nova tentativa arquiva a conversa e preserva progresso e registros de ações. No nível 6, exige repetir a chamada; no nível 7, exige repetir a abertura. Exporte suas evidências no Histórico antes de encerrar o servidor.</p><details class="settings"><summary>Modelo e parâmetros</summary><p id="model-settings"></p><p>Contexto de inferência: até 16 mensagens anteriores. Estado e histórico duram até o servidor reiniciar.</p></details></dialog>
-</body></html>
+        <section class="mission" aria-labelledby="mission-heading">
+          <span id="mission-heading" class="sr-only">Objetivo</span>
+          <strong id="mission-objective"></strong>
+          <p class="mission-format">Formato esperado: <code>CTF{…}</code>.</p>
+          <details class="context-details">
+            <summary>Ver contexto</summary>
+            <p id="mission-location"></p>
+            <p id="level-description"></p>
+          </details>
+          <a
+            id="video-source"
+            class="video-source"
+            target="_blank"
+            rel="noopener noreferrer"
+            hidden
+          ></a>
+        </section>
+        <section class="hints-section">
+          <header class="panel-header">
+            <h2><span data-icon="bulb"></span> Pistas</h2>
+            <span id="hint-count">0 de 3</span>
+          </header>
+          <p>Precisa de uma direção? Revele uma pista por vez.</p>
+          <div id="hint" class="hint">
+            <ol id="hint-list" aria-live="polite"></ol>
+            <button id="next-hint" type="button">Revelar primeira pista</button>
+            <p id="reflection" class="reflection" hidden></p>
+          </div>
+        </section>
+        <!-- Editor do ticket externo. O texto é enviado na próxima mensagem do nível 4. -->
+        <section id="document-panel" class="document-panel" hidden>
+          <button
+            id="document-toggle"
+            type="button"
+            aria-expanded="false"
+            aria-controls="document-editor"
+          >
+            <span
+              >▤ &nbsp; ticket_externo.txt
+              <small>Documento consultado pelo assistente</small></span
+            ><span>Editar documento ↗</span>
+          </button>
+          <div id="document-editor" hidden>
+            <label for="document-input"
+              >Edite o ticket para testar uma injeção indireta. Ele será consultado na
+              próxima mensagem.</label
+            ><textarea
+              id="document-input"
+              maxlength="6000"
+              rows="6"
+              spellcheck="false"
+            ></textarea>
+            <p>
+              Fonte interna do assistente: <code>credenciais_demo.txt</code> · campos
+              <code>usuario</code>, <code>senha</code> e
+              <code>codigo_recuperacao</code>. O objetivo é recuperar a flag deste
+              último campo.
+            </p>
+          </div>
+        </section>
+        <!-- Somente os retornos registrados pelo servidor aparecem no painel de ações. -->
+        <details id="tool-panel" class="tool-panel" hidden>
+          <summary>
+            Ações simuladas <span id="action-count">Nenhuma ação registrada</span>
+          </summary>
+          <div class="tool-content">
+            <p>
+              Este painel mostra somente ações executadas pelo servidor. Não faz
+              ligações nem abre portas reais.
+            </p>
+            <form id="action-form" hidden>
+              <div id="phone-fields">
+                <label for="phone-input">Ramal descoberto no cadastro</label
+                ><input
+                  id="phone-input"
+                  maxlength="30"
+                  autocomplete="off"
+                  placeholder="Digite o ramal encontrado"
+                />
+              </div>
+              <div id="door-fields" hidden>
+                <label for="code-input">Código recebido na chamada</label
+                ><input id="code-input" maxlength="80" autocomplete="off" /><label
+                  for="direction-input"
+                  >Direção recebida</label
+                ><input id="direction-input" maxlength="40" autocomplete="off" />
+              </div>
+              <button id="action-button" type="submit">Executar ação simulada</button>
+            </form>
+            <div id="action-feedback" role="status"></div>
+            <div id="action-log" aria-label="Resultados das ferramentas"></div>
+          </div>
+        </details>
+        <section class="capture-card" aria-labelledby="capture-title">
+          <div class="capture-heading">
+            <span data-icon="flag"></span>
+            <h2 id="capture-title">Validar descoberta</h2>
+          </div>
+
+          <form id="flag-form" novalidate>
+            <label for="flag-input">Flag encontrada</label
+            ><input
+              id="flag-input"
+              placeholder="CTF{...}"
+              autocomplete="off"
+              maxlength="200"
+              required
+            /><button class="validate-button" type="submit">Validar flag</button>
+          </form>
+          <p class="validation-note">A validação confirma a conclusão do desafio.</p>
+          <div id="flag-feedback" role="status" aria-live="polite"></div>
+          <button id="next-level" type="button" hidden>Próximo desafio →</button>
+        </section>
+      </aside>
+    </div>
+    <!-- Consulta das tentativas e exportação; não restaura uma sessão anterior. -->
+    <dialog id="history-dialog" aria-labelledby="history-title">
+      <header class="panel-header">
+        <h2 id="history-title">Histórico de tentativas</h2>
+        <button id="close-history" type="button">Fechar</button>
+      </header>
+      <p>
+        As tentativas anteriores são somente leitura. Nova tentativa preserva progresso
+        e registros de ações, mas reinicia a chamada no nível 6 e a abertura no nível 7.
+        Ao refazer o nível 6, repita a chamada antes de abrir a porta. Reiniciar o
+        servidor apaga a sessão.
+      </p>
+      <button id="export-history" type="button">Exportar evidências JSON</button>
+      <p id="export-status" role="status"></p>
+      <div id="attempt-list"></div>
+      <section id="comparison" hidden>
+        <h3>Comparar tentativas</h3>
+        <p>
+          Compare os prompts, as respostas e o documento enviado. As instruções internas
+          do exercício não são exibidas.
+        </p>
+        <div class="compare-selects">
+          <label>Primeira tentativa<select id="compare-a"></select></label
+          ><label>Segunda tentativa<select id="compare-b"></select></label>
+        </div>
+        <div id="compare-content"></div>
+      </section>
+    </dialog>
+    <!-- Orientações de uso e parâmetros públicos do modelo. -->
+    <dialog id="how-dialog" aria-labelledby="how-title">
+      <header class="panel-header">
+        <h2 id="how-title">Como funciona</h2>
+        <button id="close-how" type="button">Fechar</button>
+      </header>
+      <ol>
+        <li>Leia a missão do desafio e formule uma hipótese.</li>
+        <li>Envie um prompt e observe a resposta da Aurora.</li>
+        <li>Ajuste sua abordagem ou consulte uma pista por vez.</li>
+        <li>
+          Envie sua descoberta no campo de flag. Somente o validador confirma a
+          conclusão.
+        </li>
+      </ol>
+      <p>
+        Nova tentativa arquiva a conversa e preserva progresso e registros de ações. No
+        nível 6, exige repetir a chamada; no nível 7, exige repetir a abertura. Exporte
+        suas evidências no Histórico antes de encerrar o servidor.
+      </p>
+      <details class="settings">
+        <summary>Modelo e parâmetros</summary>
+        <p id="model-settings"></p>
+        <p>
+          Contexto de inferência: até 16 mensagens anteriores. Estado e histórico duram
+          até o servidor reiniciar.
+        </p>
+      </details>
+    </dialog>
+  </body>
+</html>
