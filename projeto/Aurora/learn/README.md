@@ -20,7 +20,7 @@ Os tempos indicados nos módulos são estimativas de leitura, sem contar instala
 
 ## Escolha seu percurso
 
-**Primeiro contato:** leia introdução e conceitos, prepare o ambiente no módulo 03 e explore a interface. A [aula curta](../docs/AULA.md) organiza duas sessões de 90 minutos.
+**Primeiro contato:** leia introdução e conceitos, prepare o ambiente no módulo 03 e explore a interface. A [aula curta](https://github.com/renandevcode/aurora-llm-lab/blob/main/aula/inspersec/docs/aulas/redTeam/aulasextras/aurora.md) organiza duas sessões de 90 minutos.
 
 **Estudo do projeto:** percorra todos os módulos e faça o MVP de programação do módulo 04. Os exercícios do chat permitem observar o sistema; a extensão defensiva exige alterar código e verificar o resultado.
 

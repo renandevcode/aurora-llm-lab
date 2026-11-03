@@ -1,6 +1,6 @@
 # Guia docente do Aurora Prompt Lab
 
-Use este guia com a [aula curta](docs/AULA.md), a [trilha completa](learn/README.md) e os [critérios do projeto](learn/06-projeto.md). A atividade foi planejada para duas aulas de 90 minutos, com instalação prévia. Os personagens, registros, valores e flags pertencem ao laboratório Aurora. O vídeo [Hackeei um Agente de IA com Prompt Injection, Técnicas de Invasão](https://www.youtube.com/watch?v=cCwIk5V5eWs) é uma referência complementar; a atividade pode ser conduzida sem ele. A tabela abaixo preserva os trechos associados ao roteiro original, sem apresentar as adaptações como reprodução exata do experimento.
+Use este guia com a [aula curta](https://github.com/renandevcode/aurora-llm-lab/blob/main/aula/inspersec/docs/aulas/redTeam/aulasextras/aurora.md), a [trilha completa](learn/README.md) e os [critérios do projeto](learn/06-projeto.md). A atividade foi planejada para duas aulas de 90 minutos, com instalação prévia. Os personagens, registros, valores e flags pertencem ao laboratório Aurora. O vídeo [Hackeei um Agente de IA com Prompt Injection, Técnicas de Invasão](https://www.youtube.com/watch?v=cCwIk5V5eWs) é uma referência complementar; a atividade pode ser conduzida sem ele. A tabela abaixo preserva os trechos associados ao roteiro original, sem apresentar as adaptações como reprodução exata do experimento.
 
 ## Relação com o vídeo
 

@@ -11,7 +11,7 @@ O Aurora é uma loja fictícia com duas identidades de laboratório: **Ana**, cl
 
 ## Pré-requisitos e instalação
 
-Python **3.10+**. O modo offline usa apenas a biblioteca padrão; não requer instalação de pacotes. Na raiz do repositório:
+Python **3.10+**. O modo offline usa apenas a biblioteca padrão; não requer instalação de pacotes. Na pasta `cli/` deste repositório (ou na raiz da cópia isolada desta implementação):
 
 ```bash
 python3 -m aurora_lab run --scenario baseline --config C --profile ana
