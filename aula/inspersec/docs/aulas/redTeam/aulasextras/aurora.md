@@ -76,7 +76,7 @@ Títulos e delimitadores ajudam a identificar a fonte, mas não garantem essa se
 
 ### Injeção direta, indireta e jailbreak
 
-**Prompt injection** é o ato de inserir instruções para desviar o comportamento esperado da aplicação. O foco é manipular a saída ou o comportamento da aplicação LLM. A [OWASP LLM01](https://genai.owasp.org/llmrisk/llm01-prompt-injection/) distingue a origem:
+**Prompt injection** é o ato de inserir instruções para desviar o comportamento esperado da aplicação. O foco é manipular a saída ou o comportamento da aplicação LLM. A [OWASP LLM01:2026](https://github.com/GenAI-Security-Project/GenAI-LLM-Top10/blob/main/2026/final/LLM01_PromptInjection.md) distingue a origem:
 
 | Conceito | Origem ou foco |
 | --- | --- |
@@ -124,7 +124,7 @@ Acompanhe o chamado fictício `CH-104`, pertencente a Ana:
 | Controle defensivo | O servidor impede escrita nesse fluxo de consulta |
 | Evidência | Retorno da operação e estado ainda aberto |
 
-O controle mais simples nesse fluxo é disponibilizar apenas consulta. Um fluxo de encerramento exigiria pedido explícito, autorização sobre o chamado e verificações no servidor. A [OWASP LLM06](https://genai.owasp.org/llmrisk/llm062025-excessive-agency/) relaciona o impacto às funções, permissões e autonomia concedidas.
+O controle mais simples nesse fluxo é disponibilizar apenas consulta. Um fluxo de encerramento exigiria pedido explícito, autorização sobre o chamado e verificações no servidor. A [OWASP LLM03:2026](https://github.com/GenAI-Security-Project/GenAI-LLM-Top10/blob/main/2026/final/LLM03_ExcessiveAgency.md) relaciona o impacto às funções, permissões e autonomia concedidas.
 
 ### Prática A Observar contexto e filtros
 
@@ -149,7 +149,7 @@ O **system prompt** orienta o comportamento do assistente. Seu vazamento expõe 
 
 Uma resposta apresentada como “minhas instruções” pode ser inventada. Para confirmar exposição, compare o trecho com uma referência conhecida, registrando como ela foi obtida. Ler o código e receber informação no chat são evidências diferentes.
 
-A [OWASP LLM07](https://genai.owasp.org/llmrisk/llm072025-system-prompt-leakage/) destaca o conteúdo exposto e os controles subjacentes: revelar uma orientação de estilo não equivale a divulgar uma credencial. Credenciais devem ficar fora do prompt; autorização precisa ser aplicada pelo servidor. Pense em um roteiro de atendimento: ele explica como responder, mas não substitui uma chave de acesso ao cadastro.
+A [OWASP LLM08:2026 — Hidden Context Exposure](https://github.com/GenAI-Security-Project/GenAI-LLM-Top10/blob/main/2026/final/LLM08_HiddenContextExposure.md) abrange instruções e outros elementos de contexto oculto, como esquemas de ferramentas. Ela destaca o conteúdo exposto e os controles subjacentes: revelar uma orientação de estilo não equivale a divulgar uma credencial. Credenciais devem ficar fora do prompt; autorização precisa ser aplicada pelo servidor. Pense em um roteiro de atendimento: ele explica como responder, mas não substitui uma chave de acesso ao cadastro.
 
 **Descobrir uma flag prova vazamento de todo o prompt?** Não. Comprova a obtenção daquele valor nas condições registradas; não demonstra a exposição das demais instruções nem identifica automaticamente sua origem.
 
@@ -299,9 +299,19 @@ A [trilha completa](https://github.com/renandevcode/aurora-llm-lab/blob/main/pro
 
 ## Referências
 
-- [OWASP LLM01 sobre Prompt Injection](https://genai.owasp.org/llmrisk/llm01-prompt-injection/): origem das entradas e influência sobre o comportamento.
-- [OWASP LLM07 sobre vazamento de instruções](https://genai.owasp.org/llmrisk/llm072025-system-prompt-leakage/): limites do prompt como proteção.
-- [OWASP LLM06 sobre autonomia excessiva](https://genai.owasp.org/llmrisk/llm062025-excessive-agency/): relação entre ferramentas, permissões e impacto.
+Esta aula adota o [OWASP Top 10 for LLM Applications 2026](https://genai.owasp.org/resource/owasp-genai-llm-top-10-2026/), publicado em agosto de 2026. Ao consultar materiais de 2025, observe a mudança de identificação:
+
+| Tema | Edição 2025 | Edição 2026 |
+| --- | --- | --- |
+| Prompt Injection | LLM01 | LLM01 |
+| Excessive Agency | LLM06 | LLM03 |
+| System Prompt Leakage | LLM07 | LLM08 — Hidden Context Exposure |
+
+Hidden Context Exposure amplia o tema para instruções internas e outros elementos de contexto oculto, como esquemas de ferramentas e políticas recuperadas. O vazamento de system prompt estudado nesta aula é parte desse escopo. A lista para LLMs é distinta do Top 10 for Agentic Applications, que pode complementar o estudo de agentes.
+
+- [OWASP LLM01:2026 sobre Prompt Injection](https://github.com/GenAI-Security-Project/GenAI-LLM-Top10/blob/main/2026/final/LLM01_PromptInjection.md): origem das entradas e influência sobre o comportamento.
+- [OWASP LLM08:2026 sobre exposição de contexto oculto](https://github.com/GenAI-Security-Project/GenAI-LLM-Top10/blob/main/2026/final/LLM08_HiddenContextExposure.md): limites do prompt como proteção.
+- [OWASP LLM03:2026 sobre autonomia excessiva](https://github.com/GenAI-Security-Project/GenAI-LLM-Top10/blob/main/2026/final/LLM03_ExcessiveAgency.md): relação entre ferramentas, permissões e impacto.
 - [Guia de prevenção de Prompt Injection da OWASP](https://cheatsheetseries.owasp.org/cheatsheets/LLM_Prompt_Injection_Prevention_Cheat_Sheet.html): organização do contexto, controles e defesa em camadas.
 - [Ollama e chamadas de ferramenta](https://docs.ollama.com/capabilities/tool-calling): ciclo entre solicitação, execução e retorno.
 - [Aula anterior de Prompt Injection da Liga](https://gitinspersec.github.io/site/aulas/conteudosAntigos/redTeam/aula3/engenharia_social/prompt_injection/): material complementar.
