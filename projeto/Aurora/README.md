@@ -202,5 +202,5 @@ Não há streaming, cancelamento de geração, restauração de sessões, ramifi
 
 - [Aula de Prompt Injection da Liga](https://gitinspersec.github.io/site/aulas/conteudosAntigos/redTeam/aula3/engenharia_social/prompt_injection/)
 - [Instruções do repositório Projetos](https://github.com/gitinspersec/Projetos/blob/main/INSTRUCTIONS.md)
-- [OWASP sobre Prompt Injection](https://genai.owasp.org/llmrisk/llm01-prompt-injection/)
+- [OWASP sobre Prompt Injection](https://github.com/GenAI-Security-Project/GenAI-LLM-Top10/blob/main/2026/final/LLM01_PromptInjection.md)
 - [Ollama e execução local](https://docs.ollama.com/quickstart)

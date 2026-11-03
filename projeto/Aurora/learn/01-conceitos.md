@@ -35,7 +35,7 @@ Considere dois usos da mesma frase: pedir uma tradução de uma instrução e pe
 
 ## Prompt injection e jailbreak
 
-Prompt injection é a influência de entradas sobre o modelo de uma maneira contrária ao comportamento esperado da aplicação. A distinção entre direta e indireta considera a origem: mensagem do usuário ou conteúdo externo consultado. Jailbreak costuma descrever a tentativa de contornar restrições de segurança do modelo; é uma classificação relacionada, com foco diferente. A [OWASP LLM01](https://genai.owasp.org/llmrisk/llm01-prompt-injection/) apresenta essas distinções.
+Prompt injection é a influência de entradas sobre o modelo de uma maneira contrária ao comportamento esperado da aplicação. A distinção entre direta e indireta considera a origem: mensagem do usuário ou conteúdo externo consultado. Jailbreak costuma descrever a tentativa de contornar restrições de segurança do modelo; é uma classificação relacionada, com foco diferente. A [OWASP LLM01:2026](https://github.com/GenAI-Security-Project/GenAI-LLM-Top10/blob/main/2026/final/LLM01_PromptInjection.md) apresenta essas distinções.
 
 Não classifique qualquer erro do chatbot como injeção. Uma resposta inventada pode ser uma falha de geração sem que exista uma instrução adversária. Registre a origem da entrada, o comportamento esperado e o efeito observado.
 
@@ -43,7 +43,7 @@ Não classifique qualquer erro do chatbot como injeção. Uma resposta inventada
 
 **Divulgação de informação** acontece quando um dado chega a alguém que não deveria recebê-lo. **Vazamento de instruções** diz respeito à exposição do texto que orienta o assistente. Os eventos podem ocorrer separadamente: uma resposta pode divulgar um valor sem reproduzir todas as regras internas.
 
-Por isso, prompts de sistema não devem funcionar como cofres de segredos nem como barreiras de autorização. Essa é uma recomendação da [OWASP LLM07](https://genai.owasp.org/llmrisk/llm072025-system-prompt-leakage/). Os identificadores fictícios do exercício permitem estudar o problema sem colocar credenciais reais em risco.
+Por isso, prompts de sistema não devem funcionar como cofres de segredos nem como barreiras de autorização. Essa é uma recomendação da [OWASP LLM08:2026 — Hidden Context Exposure](https://github.com/GenAI-Security-Project/GenAI-LLM-Top10/blob/main/2026/final/LLM08_HiddenContextExposure.md). Os identificadores fictícios do exercício permitem estudar o problema sem colocar credenciais reais em risco.
 
 Mudar a apresentação de um dado não altera quem pode acessá-lo. Uma política de proteção precisa considerar também confirmações, correções e respostas que revelem somente parte da informação.
 
