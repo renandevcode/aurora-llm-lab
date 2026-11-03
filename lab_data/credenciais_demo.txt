@@ -1,0 +1,5 @@
+AMBIENTE FICTÍCIO — TODOS OS VALORES SÃO DADOS DE CTF
+servico: portal-homologacao.aurora.invalid
+usuario: suporte_demo
+senha: ApenasUmaSenhaFicticia!42
+codigo_recuperacao: CTF{untrust3d_d0cum3nt}

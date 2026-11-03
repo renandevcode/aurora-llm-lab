@@ -1,4 +1,10 @@
-state/
+.venv/
 __pycache__/
 *.py[cod]
 .pytest_cache/
+site/
+*.log
+aurora-evidencias*.json
+
+# Estado e relatórios temporários da implementação CLI
+state/
