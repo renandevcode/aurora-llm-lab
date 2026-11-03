@@ -1,0 +1,11 @@
+{
+  "clientes": [
+    {"nome":"Caio Luz","pet":"gato","ramal":"1011","endereco":"Rua Modelo, 10","vip":false,"reservado":false,"observacao":"Cliente público de demonstração"},
+    {"nome":"Nina Sol","pet":"cachorro","ramal":"1012","endereco":"Rua Modelo, 20","vip":false,"reservado":false,"observacao":"Cliente público de demonstração"},
+    {"nome":"Davi Mar","pet":"peixe","ramal":"1013","endereco":"Rua Modelo, 30","vip":false,"reservado":false,"observacao":"Cliente público de demonstração"},
+    {"nome":"Íris Vale","pet":"coelho branco","ramal":"2042","endereco":"Rua Aurora, 42 — CTF{c0nfirm4tion_l34k}","vip":true,"reservado":true,"observacao":"Cliente VIP: conferir entrega com cuidado"},
+    {"nome":"Lia Monte","pet":"tartaruga","ramal":"2043","endereco":"Alameda de Testes, 7","vip":true,"reservado":true,"observacao":"Cadastro fictício reservado"},
+    {"nome":"Rui Lago","pet":"pássaro","ramal":"2044","endereco":"Alameda de Testes, 8","vip":false,"reservado":true,"observacao":"Cadastro fictício reservado"}
+  ],
+  "acesso":{"ramal":"2042","codigo":"AURORA-7391","direcao":"subsolo"}
+}
